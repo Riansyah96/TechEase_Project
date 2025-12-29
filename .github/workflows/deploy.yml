@@ -1,0 +1,25 @@
+name: Deploy Techease Website
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /var/www/techease.my.id
+            git config --global --add safe.directory /var/www/techease.my.id
+            git pull origin main
+            # Jika nanti Anda menggunakan Framework, tambahkan build command di sini
