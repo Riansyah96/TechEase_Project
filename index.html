@@ -1,1 +1,316 @@
-<h1>Welcome to TechEase</h1>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechEase ID - Solusi IT Cepat, Mudah, dan Terpercaya</title>
+
+  <script src="https://cdn.tailwindcss.com"></script> 
+
+  <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.umd.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKx3K91I2Lfe+8jF+N2+G9L5w==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* Transisi untuk Dark Mode */
+    html, body {
+      transition: background-color .3s, color .3s;
+    }
+    /* Mengatasi Navbar agar tidak menimpa konten saat scroll */
+    .pt-safe {
+      padding-top: 5rem; 
+    }
+  </style>
+  
+  <script>
+    // --- DARK MODE TOGGLE & INITIALIZATION ---
+    const btn = document.getElementById("themeToggle");
+    const icon = document.getElementById("themeIcon");
+
+    function updateThemeIcon(isDark) {
+        if (icon) {
+            icon.classList.toggle("fa-sun", !isDark);
+            icon.classList.toggle("fa-moon", isDark);
+        }
+    }
+
+    function initDarkMode() {
+        const userPref = localStorage.getItem("theme");
+        let isDark = false;
+
+        if (userPref) {
+          isDark = userPref === "dark";
+        } else {
+          isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        }
+
+        document.documentElement.classList.toggle("dark", isDark);
+        updateThemeIcon(isDark);
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        initDarkMode();
+
+        if (btn) {
+            btn.addEventListener("click", () => {
+                const isDark = document.documentElement.classList.toggle("dark");
+                localStorage.setItem("theme", isDark ? "dark" : "light");
+                updateThemeIcon(isDark);
+            });
+        }
+    });
+
+    // --- FRAMER MOTION AOS-like IMPLEMENTATION ---
+    if (window.FramerMotion) {
+        const { animate } = window.FramerMotion;
+
+        function initAOS() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const delay = parseInt(entry.target.getAttribute('data-aos-delay')) || 0;
+                        const animationType = entry.target.getAttribute('data-aos') || 'fade';
+                        let initialStyles = {};
+                        let animationProps = {};
+
+                        switch (animationType) {
+                            case 'fade-up': initialStyles = { y: 50, opacity: 0 }; animationProps = { y: 0, opacity: 1, duration: 0.6 }; break;
+                            case 'fade-down': initialStyles = { y: -50, opacity: 0 }; animationProps = { y: 0, opacity: 1, duration: 0.6 }; break;
+                            case 'fade-left': initialStyles = { x: -50, opacity: 0 }; animationProps = { x: 0, opacity: 1, duration: 0.6 }; break;
+                            case 'fade-right': initialStyles = { x: 50, opacity: 0 }; animationProps = { x: 0, opacity: 1, duration: 0.6 }; break;
+                            case 'zoom-in': initialStyles = { scale: 0.8, opacity: 0 }; animationProps = { scale: 1, opacity: 1, duration: 0.5 }; break;
+                            default: initialStyles = { opacity: 0 }; animationProps = { opacity: 1, duration: 0.5 }; break;
+                        }
+
+                        Object.assign(entry.target.style, {
+                            ...initialStyles,
+                            transform: `translateX(${initialStyles.x || 0}px) translateY(${initialStyles.y || 0}px) scale(${initialStyles.scale || 1})`,
+                        });
+                        
+                        setTimeout(() => {
+                            animate(entry.target, animationProps, { delay: delay / 1000, ease: [0.17, 0.55, 0.55, 1] });
+                        }, 10); 
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('[data-aos]').forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', initAOS);
+    }
+  </script>
+</head>
+
+<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 pt-safe">
+
+  <nav class="w-full fixed top-0 backdrop-blur-lg bg-white/70 dark:bg-gray-900/70 z-50 shadow-md">
+    <div class="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="font-bold text-2xl text-blue-600">TechEase ID</h1>
+      <button id="themeToggle" class="text-xl p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300">
+        <i id="themeIcon" class="fas fa-moon"></i> 
+      </button>
+    </div>
+  </nav>
+
+  <header id="home" class="h-screen flex items-center bg-white dark:bg-gray-900">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <span class="text-lg text-gray-500 dark:text-gray-400 mb-2 block" data-aos="fade-down">IT Support untuk Kebutuhan Harian Anda</span>
+      <h2 class="text-5xl md:text-7xl font-extrabold mb-4 text-gray-900 dark:text-white" data-aos="fade-down" data-aos-delay="100">
+        Solusi IT <span class="text-blue-600">Cepat</span>, <span class="text-blue-600">Mudah</span>, dan <span class="text-blue-600">Terpercaya.</span>
+      </h2>
+      <p class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-10 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="300">
+        Layanan IT Support yang fokus pada individu, UMKM, dan kantor kecil. Kami menjembatani teknologi agar mudah diakses semua orang.
+      </p>
+      <a href="#services" class="inline-block px-10 py-3 rounded-full bg-blue-600 text-white text-lg font-semibold hover:bg-blue-700 shadow-xl shadow-blue-500/50 transition duration-300 transform hover:scale-105" data-aos="zoom-in" data-aos-delay="500">
+        Mulai Konsultasi Gratis
+      </a>
+    </div>
+  </header>
+
+  <section id="why-us" class="py-24 px-6 bg-gray-100 dark:bg-gray-800">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white" data-aos="fade-up">Kenapa Harus TechEase ID?</h3>
+      <p class="text-xl text-gray-600 dark:text-gray-300 mb-12" data-aos="fade-up" data-aos-delay="100">Prinsip kami adalah kecepatan, kemudahan, dan integritas.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg border-t-4 border-blue-500 transition hover:shadow-2xl transform hover:-translate-y-1" data-aos="fade-right" data-aos-delay="200">
+          <i class="fas fa-clock text-5xl text-blue-500 mb-4"></i>
+          <h4 class="text-2xl font-bold mb-3">Respon Cepat</h4>
+          <p class="text-gray-600 dark:text-gray-400">Tim kami merespon dalam hitungan menit untuk masalah online dan menjadwalkan kunjungan (onsite) secepat mungkin.</p>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg border-t-4 border-blue-500 transition hover:shadow-2xl transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
+          <i class="fas fa-smile text-5xl text-blue-500 mb-4"></i>
+          <h4 class="text-2xl font-bold mb-3">Proses Mudah</h4>
+          <p class="text-gray-600 dark:text-gray-400">Tidak ada jargon teknis yang membingungkan. Solusi disajikan dalam bahasa yang mudah dipahami oleh siapa saja.</p>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg border-t-4 border-blue-500 transition hover:shadow-2xl transform hover:-translate-y-1" data-aos="fade-left" data-aos-delay="400">
+          <i class="fas fa-check-circle text-5xl text-blue-500 mb-4"></i>
+          <h4 class="text-2xl font-bold mb-3">Hasil Terjamin</h4>
+          <p class="text-gray-600 dark:text-gray-400">Teknisi kami tersertifikasi dan berkomitmen memberikan perbaikan yang tuntas dengan garansi layanan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="py-24 px-6 bg-white dark:bg-gray-900">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-4xl font-extrabold text-center mb-16 text-blue-600" data-aos="fade-up">Jelajahi Solusi Teknologi Kami</h3>
+      
+      <div class="space-y-16">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <span class="text-sm font-semibold text-blue-500 uppercase">Kategori 1</span>
+                <h4 class="text-3xl font-bold mb-4">Troubleshooting & Perbaikan Sistem</h4>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">Penanganan menyeluruh untuk masalah yang paling umum. Kami mengembalikan perangkat Anda ke performa puncaknya.</p>
+                
+                <ul class="space-y-3">
+                    <li class="flex items-center text-lg"><i class="fas fa-wrench mr-3 text-blue-500"></i>Perbaikan Sistem Operasi Error/Lambat.</li>
+                    <li class="flex items-center text-lg"><i class="fas fa-viruses mr-3 text-blue-500"></i>Pembersihan Virus, Malware, dan Spyware.</li>
+                    <li class="flex items-center text-lg"><i class="fas fa-hdd mr-3 text-blue-500"></i>Upgrade RAM, SSD, dan Diagnosis Hardware Ringan.</li>
+                </ul>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="200" class="order-first lg:order-last">
+                <div class="bg-gray-200 dark:bg-gray-700 h-64 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-laptop-code text-8xl text-gray-500 dark:text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-left" class="lg:order-last">
+                <span class="text-sm font-semibold text-blue-500 uppercase">Kategori 2</span>
+                <h4 class="text-3xl font-bold mb-4">Layanan Digitalisasi Bisnis (UMKM)</h4>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">Membantu bisnis kecil bertransformasi digital tanpa biaya tinggi. Fokus pada efisiensi dan keamanan data.</p>
+                
+                <ul class="space-y-3">
+                    <li class="flex items-center text-lg"><i class="fas fa-envelope-open-text mr-3 text-blue-500"></i>Setup Email Bisnis (Google Workspace/Zoho).</li>
+                    <li class="flex items-center text-lg"><i class="fas fa-server mr-3 text-blue-500"></i>Backup Cloud Otomatis dan Sinkronisasi Data.</li>
+                    <li class="flex items-center text-lg"><i class="fas fa-network-wired mr-3 text-blue-500"></i>Setup Jaringan Kantor Sederhana (WiFi & Printer).</li>
+                </ul>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="200" class="order-first lg:order-first">
+                <div class="bg-gray-200 dark:bg-gray-700 h-64 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-cogs text-8xl text-gray-500 dark:text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="py-24 px-6 bg-gray-100 dark:bg-gray-800">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white" data-aos="fade-up">Apa Kata Klien Kami?</h3>
+      <p class="text-xl text-gray-600 dark:text-gray-300 mb-12" data-aos="fade-up" data-aos-delay="100">Kepercayaan adalah kunci layanan kami.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg border-l-4 border-blue-500" data-aos="fade-up" data-aos-delay="200">
+          <p class="text-gray-700 dark:text-gray-300 italic mb-4">"Laptop saya error saat deadline, TechEase ID langsung datang dan selesai dalam 1 jam. Pelayanan sangat memuaskan dan solutif!"</p>
+          <div class="font-semibold text-blue-600">— Rina A., Freelancer</div>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg border-l-4 border-blue-500" data-aos="fade-up" data-aos-delay="300">
+          <p class="text-gray-700 dark:text-gray-300 italic mb-4">"Kami UMKM baru, dibantu setup email bisnis dan cloud backup, jadi lebih profesional. Biayanya sangat terjangkau."</p>
+          <div class="font-semibold text-blue-600">— Bpk. Yudi, Pemilik Kedai Kopi</div>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg border-l-4 border-blue-500" data-aos="fade-up" data-aos-delay="400">
+          <p class="text-gray-700 dark:text-gray-300 italic mb-4">"Anak saya kesulitan dengan laptop sekolahnya. Dikerjakan lewat remote access dengan aman. Saya sangat terbantu!"</p>
+          <div class="font-semibold text-blue-600">— Ibu Santi, Ibu Rumah Tangga</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="py-24 px-6 bg-white dark:bg-gray-900">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-4xl font-extrabold text-center mb-16 text-blue-600" data-aos="fade-up">Paket Maintenance Berkala</h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-xl transition hover:shadow-2xl transform hover:scale-[1.03]" data-aos="fade-right" data-aos-delay="100">
+          <h4 class="text-2xl font-bold mb-3 text-blue-600">Personal (Bulanan)</h4>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Cocok untuk pengguna personal dan pelajar.</p>
+          <div class="text-5xl font-extrabold mb-6">Rp 75K<span class="text-base font-normal text-gray-500">/bulan</span></div>
+          <ul class="space-y-3 text-left mb-8">
+            <li class="flex items-center"><i class="fas fa-check-circle mr-3 text-green-500"></i>Pembersihan virus dasar.</li>
+            <li class="flex items-center"><i class="fas fa-check-circle mr-3 text-green-500"></i>Optimasi 1x/bulan (Remote).</li>
+            <li class="flex items-center"><i class="fas fa-times-circle mr-3 text-red-500"></i>Dukungan Hardware (Tidak termasuk).</li>
+          </ul>
+          <a href="#contact" class="block w-full py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition">Pilih Paket</a>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-2xl ring-4 ring-blue-600 transform scale-105" data-aos="fade-up" data-aos-delay="200">
+          <span class="inline-block px-4 py-1 text-xs font-bold text-white bg-blue-600 rounded-full mb-4">PALING POPULER</span>
+          <h4 class="text-3xl font-bold mb-3 text-blue-600">Bisnis (Bulanan)</h4>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Ideal untuk UMKM dan kantor kecil (hingga 5 perangkat).</p>
+          <div class="text-6xl font-extrabold mb-6 text-gray-900 dark:text-white">Rp 250K<span class="text-lg font-normal text-gray-500">/bulan</span></div>
+          <ul class="space-y-3 text-left mb-8">
+            <li class="flex items-center"><i class="fas fa-check-circle mr-3 text-green-500"></i>Dukungan prioritas (Remote & Onsite).</li>
+            <li class="flex items-center"><i class="fas fa-check-circle mr-3 text-green-500"></i>Setup Backup Cloud.</li>
+            <li class="flex items-center"><i class="fas fa-check-circle mr-3 text-green-500"></i>Maintenance Jaringan 1x/bulan.</li>
+          </ul>
+          <a href="#contact" class="block w-full py-4 bg-blue-600 text-white rounded-lg font-extrabold hover:bg-blue-700 transition">Pilih Paket Ini</a>
+        </div>
+        
+        <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-xl transition hover:shadow-2xl transform hover:scale-[1.03]" data-aos="fade-left" data-aos-delay="300">
+          <h4 class="text-2xl font-bold mb-3 text-blue-600">Kustom (Tahunan)</h4>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Solusi untuk kebutuhan IT yang unik dan kompleks.</p>
+          <div class="text-5xl font-extrabold mb-6">Hubungi<span class="text-base font-normal text-gray-500">/Konsultasi</span></div>
+          <ul class="space-y-3 text-left mb-8">
+            <li class="flex items-center"><i class="fas fa-check-circle mr-3 text-green-500"></i>SLA (Service Level Agreement) Khusus.</li>
+            <li class="flex items-center"><i class="fas fa-check-circle mr-3 text-green-500"></i>Dukungan Teknis Onsite 24/7.</li>
+            <li class="flex items-center"><i class="fas fa-check-circle mr-3 text-green-500"></i>Manajemen IT Penuh (Server, Cloud, Security).</li>
+          </ul>
+          <a href="#contact" class="block w-full py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition">Hubungi Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-24 px-6 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-6 text-blue-600" data-aos="fade-down">Siap Mendapatkan Solusi IT Terbaik? 🚀</h3>
+      <p class="text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto" data-aos="fade-up">
+        Jangan biarkan masalah teknis menghambat produktivitas Anda. Hubungi tim kami sekarang untuk mendapatkan penanganan cepat dan terpercaya.
+      </p>
+
+      <a href="mailto:contact@techease.id"
+        class="inline-block px-10 py-4 rounded-full bg-blue-600 text-white text-lg font-extrabold hover:bg-blue-700 shadow-2xl transition duration-300 transform hover:scale-105" data-aos="zoom-in" data-aos-delay="200">
+        <i class="fas fa-paper-plane mr-2"></i> Kirim Email ke TechEase ID
+      </a>
+      
+      <p class="text-sm text-gray-500 dark:text-gray-400 mt-6">Atau hubungi via WhatsApp: +62 812-XXXX-XXXX</p>
+    </div>
+  </section>
+
+  <footer class="py-10 text-center bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+            <h5 class="text-2xl font-bold text-blue-600 mb-2 md:mb-0">TechEase ID</h5>
+            <div class="space-x-4">
+                <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 transition"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <p class="text-gray-600 dark:text-gray-400 text-sm">&copy; 2025 TechEase ID. Solusi IT Terpercaya. Dibuat dengan ❤️</p>
+    </div>
+  </footer>
+
+</body>
+</html>
