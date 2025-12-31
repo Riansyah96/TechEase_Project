@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechEase ID - Solusi IT Terpercaya</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #0a58ca;
+            --dark-bg: #212529;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        
+        /* Cards Styling */
+        .card-link {
+        text-decoration: none;
+        color: inherit;
+        }
+
+        .card-link2 {
+        text-decoration: none;
+        color: inherit;
+        }
+
+        .card-link3 {
+        text-decoration: none;
+        color: inherit;
+        }
+
+        .card-link4 {
+        text-decoration: none;
+        color: inherit;
+        }
+
+        .card-link5 {
+        text-decoration: none;
+        color: inherit;
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .icon-box {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Team Section */
+        .team-img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: #ccc;
+            padding: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-laptop-code me-2"></i>TechEase ID</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Layanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Tim</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-primary text-white px-4 ms-2" href="contact.html">Hubungi Kami</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Solusi IT Cepat, Mudah, dan Terpercaya</h1>
+            <p class="lead mb-4">Layanan IT Support dasar untuk individu, UMKM, dan kantor kecil.</p>
+            <p class="small opacity-75">Teknologi untuk semua.</p>
+            <div class="mt-4">
+                <a href="#services" class="btn btn-light btn-lg rounded-pill px-5 fw-bold text-primary">Lihat Layanan</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Visi & Misi -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <h2 class="fw-bold mb-3">Tentang TechEase ID</h2>
+                    <p class="text-muted">Kami hadir untuk menjadi jembatan antara pengguna dengan solusi digital yang efisien.</p>
+                    <div class="p-4 bg-light rounded-3 border-start border-4 border-primary">
+                        <h4 class="fw-bold">Visi Kami</h4>
+                        <p>Menjadi penyedia layanan IT Support terdepan yang memberikan solusi cepat, efektif, dan terjangkau untuk masyarakat dan UMKM di Indonesia.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="fw-bold mb-3">Misi Kami</h3>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-transparent"><i class="fas fa-check-circle text-success me-2"></i>Menyediakan layanan bantuan teknis yang mudah diakses.</li>
+                        <li class="list-group-item bg-transparent"><i class="fas fa-check-circle text-success me-2"></i>Memberikan solusi IT yang aman dan efisien.</li>
+                        <li class="list-group-item bg-transparent"><i class="fas fa-check-circle text-success me-2"></i>Membangun sistem dukungan responsif (onsite & online).</li>
+                        <li class="list-group-item bg-transparent"><i class="fas fa-check-circle text-success me-2"></i>Mengedukasi pengguna agar melek teknologi.</li>
+                        <li class="list-group-item bg-transparent"><i class="fas fa-check-circle text-success me-2"></i>Berinovasi dalam maintenance berkala dan otomatisasi.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produk & Layanan -->
+    <section id="services" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-primary fw-bold text-uppercase">Apa yang kami kerjakan</h6>
+                <h2 class="fw-bold">Produk & Layanan Unggulan</h2>
+            </div>
+
+            <div class="row g-4">
+                <!-- Service 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <a href="detail-troubleshoot.html" class="card-link">
+                        <div class="card p-4 text-center h-100">
+                            <div class="card-body">
+                                <div class="icon-box">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <h4 class="card-title fw-bold">Troubleshooting</h4>
+                                <p class="card-text text-muted small">
+                                    Perbaikan error sistem, laptop lemot/hang, blue screen, dan perbaikan jaringan WiFi dasar.
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Service 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <a href="detail-install.html" class="card-link2">
+                    <div class="card p-4 text-center h-100">
+                        <div class="card-body">
+                            <div class="icon-box">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <h4 class="card-title fw-bold">Instalasi Software</h4>
+                            <p class="card-text text-muted small">
+                                Instalasi OS Windows/Linux, aplikasi perkantoran, antivirus, dan optimalisasi sistem.
+                            </p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <!-- Service 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <a href="detail-remote.html" class="card-link3">
+                    <div class="card p-4 text-center h-100">
+                        <div class="card-body">
+                            <div class="icon-box"><i class="fas fa-wifi"></i></div>
+                            <h4 class="card-title fw-bold">Remote Support</h4>
+                            <p class="card-text text-muted small">Solusi bantuan jarak jauh dengan kontrol perangkat, diagnosa cepat, dan video call real-time.</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <!-- Service 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <a href="detail-maintenance.html" class="card-link4">
+                    <div class="card p-4 text-center h-100">
+                        <div class="card-body">
+                            <div class="icon-box"><i class="fas fa-tachometer-alt"></i></div>
+                            <h4 class="card-title fw-bold">Maintenance</h4>
+                            <p class="card-text text-muted small">Pembersihan file sampah otomatis, monitoring hardware, dan optimasi performa.</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <!-- Service 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <a href="detail-enterprise.html" class="card-link5">
+                    <div class="card p-4 text-center h-100">
+                        <div class="card-body">
+                            <div class="icon-box"><i class="fas fa-building"></i></div>
+                            <h4 class="card-title fw-bold">Onsite & Enterprise</h4>
+                            <p class="card-text text-muted small">Teknisi ke lokasi, perbaikan hardware ringan, setup jaringan, dan solusi digital UMKM.</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <!-- Target Pengguna (Extra Info) -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card p-4 text-center bg-primary text-white h-100">
+                        <div class="card-body">
+                            <h4 class="card-title fw-bold mb-3">Target Kami</h4>
+                            <ul class="list-unstyled text-start small">
+                                <li class="mb-2"><i class="fas fa-user me-2"></i>Pelajar & Mahasiswa</li>
+                                <li class="mb-2"><i class="fas fa-briefcase me-2"></i>Pekerja Kantoran & Freelancer</li>
+                                <li class="mb-2"><i class="fas fa-store me-2"></i>UMKM & Bisnis Kecil</li>
+                                <li class="mb-2"><i class="fas fa-home me-2"></i>Rumah Tangga (Non-teknis)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tim Founder -->
+    <section id="team" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="text-primary fw-bold text-uppercase">Tim Kami</h6>
+                <h2 class="fw-bold">Jajaran Founder & C-Level</h2>
+                <p class="text-muted">Dipimpin oleh tim profesional yang berdedikasi.</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- CEO -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card p-3 text-center shadow-sm">
+                        <img src="https://ui-avatars.com/api/?name=M+Khoirul+Anam&background=0D8ABC&color=fff" alt="CEO" class="team-img">
+                        <h5 class="fw-bold mb-0">Muhammad Khoirul Anam</h5>
+                        <p class="text-primary small fw-bold mb-2">Chief Executive Officer</p>
+                        <p class="small text-muted">Pengambilan keputusan strategis dan hubungan kemitraan.</p>
+                    </div>
+                </div>
+                <!-- CTO -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card p-3 text-center shadow-sm">
+                        <img src="https://ui-avatars.com/api/?name=M+Raisa+Qisti&background=6c757d&color=fff" alt="CTO" class="team-img">
+                        <h5 class="fw-bold mb-0">Muhammad Raisa Qisti Raihan M.Kom</h5>
+                        <p class="text-primary small fw-bold mb-2">sspesialist html dan begal tt</p>
+                        <p class="small text-muted">Inovasi layanan IT Support dan pengembangan SOP.</p>
+                    </div>
+                </div>
+                <!-- COO -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card p-3 text-center shadow-sm">
+                        <img src="picture/bibbubbob.jpg" alt="COO" class="team-img">
+                        <h5 class="fw-bold mb-0">Nabib Khalish Alfayadh</h5>
+                        <p class="text-primary small fw-bold mb-2">Chief Operating Officer</p>
+                        <p class="small text-muted">Manajemen teknisi lapangan dan kualitas layanan.</p>
+                    </div>
+                </div>
+                <!-- CCO -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card p-3 text-center shadow-sm">
+                        <img src="https://ui-avatars.com/api/?name=Arief+Rachman&background=6c757d&color=fff" alt="CCO" class="team-img">
+                        <h5 class="fw-bold mb-0">Arief Rachman Apriansyah</h5>
+                        <p class="text-primary small fw-bold mb-2">Chief Customer Officer</p>
+                        <p class="small text-muted">Layanan pelanggan dan pengalaman pengguna.</p>
+                    </div>
+                </div>
+                <!-- CFO -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card p-3 text-center shadow-sm">
+                        <img src="https://ui-avatars.com/api/?name=Ady+Eka&background=0D8ABC&color=fff" alt="CFO" class="team-img">
+                        <h5 class="fw-bold mb-0">Ady Eka Apriliansyah</h5>
+                        <p class="text-primary small fw-bold mb-2">Chief Financial Officer</p>
+                        <p class="small text-muted">Pengelolaan keuangan dan analisis profitabilitas.</p>
+                    </div>
+                </div>
+                <!-- CMO -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card p-3 text-center shadow-sm">
+                        <img src="picture/bibbubbob.jpg" alt="CMO" class="team-img">
+                        <h5 class="fw-bold mb-0">Muhammad Thoriq Al-Fath</h5>
+                        <p class="text-primary small fw-bold mb-2">Chief Marketing Officer</p>
+                        <p class="small text-muted">Branding, pemasaran digital, dan kampanye promosi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container text-center">
+            <h3 class="fw-bold text-white mb-3">TechEase ID</h3>
+            <p class="mb-4">"Solusi IT Cepat, Mudah, dan Terpercaya."</p>
+            <div class="social-links mb-4">
+                <a href="#" class="text-white mx-2 fs-4"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white mx-2 fs-4"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-white mx-2 fs-4"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="text-white mx-2 fs-4"><i class="fas fa-envelope"></i></a>
+            </div>
+            <hr class="border-secondary">
+            <p class="small mb-0">&copy; 2025 TechEase ID. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
